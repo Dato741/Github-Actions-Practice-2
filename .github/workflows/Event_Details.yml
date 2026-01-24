@@ -5,6 +5,6 @@ jobs:
     runs-on: ubuntu-slim
     steps:
       - name: "Install JQ"
-        run: apt install jq
+        run: sudo apt install jq
       - name: "Get event details"
         run: echo "${{ github }}" | jq
