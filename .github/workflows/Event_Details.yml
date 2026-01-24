@@ -1,5 +1,5 @@
 name: "ED"
-on: issues
+on: [issues, workflow_dispatch]
 jobs:
   Output_Details:
     runs-on: ubuntu-slim
