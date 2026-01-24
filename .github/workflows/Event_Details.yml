@@ -1,0 +1,10 @@
+name: "ED"
+on: issues
+jobs:
+  Output_Details:
+    runs-on: ubuntu-slim
+    steps:
+      - name: "Install JQ"
+        run: apt install jq
+      - name: "Get event details"
+        run: echo "${{ github }}" | jq
