@@ -6,11 +6,11 @@ jobs:
     steps:
       - name: "Get Code"
         uses: actions/checkout@v4
-      - name: "Install npm & dependecies"
+      - name: "Spin up node image"
+        run: docker run --name=node --mount type=bind,src=${{ github.workspace }},dst=/var/www -d node
+      - name: "Install npm and dependecies"
         run: |
-          npm install
-          npm ci
+          docker exec node npm install
+          docker exec node npm ci
       - name: "Build app"
-        run: npm run build
-      - name: "Check"
-        run: ls
+        run: docker exec npm run build
