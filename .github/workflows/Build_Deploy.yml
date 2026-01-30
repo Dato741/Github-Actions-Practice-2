@@ -7,7 +7,7 @@ jobs:
       - name: "Get Code"
         uses: actions/checkout@v4
       - name: "Spin up node image"
-        run: docker run --name=node --mount type=bind,src=${{ github.workspace }},dst=/var/www -d node
+        run: docker run --name=node --mount type=bind,src=${{ github.workspace }},dst=/var/www -d node sleep 1000
       - name: "Install npm and dependecies"
         run: |
           docker exec node npm install
