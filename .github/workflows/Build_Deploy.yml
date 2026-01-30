@@ -9,5 +9,5 @@ jobs:
       - name: "Spin up node image"
         run: docker run --name=node --mount type=bind,src=${{ github.workspace }},dst=/var/www -d node sleep 1000
       - name: "Build app"
-        run: docker exec node npm run build
+        run: docker exec node npm run build --prefix /var/www
       - run: ls
